@@ -76,7 +76,7 @@ function FormData() {
             <div className="relative w-full">
               <input
                 type="text"
-                className="w-full rounded-lg bg-black border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                className="w-full rounded-lg border-gray-200 p-4  pr-12 text-sm shadow-sm"
                 placeholder="Enter Username"
                 onChange={(e) => {
                   setName(e.target.value);
@@ -95,7 +95,7 @@ function FormData() {
           <div className="relative w-full">
             <input
               type="text"
-              className="w-full rounded-lg bg-black border-gray-200 p-4 pr-12 text-sm shadow-sm"
+              className="w-full rounded-lg  border-gray-200 p-4 pr-12 text-sm shadow-sm"
               placeholder="Enter email"
               onChange={(e) => {
                 setEmail(e.target.value);

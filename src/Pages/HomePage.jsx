@@ -4,29 +4,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { LogoutFirebase } from "../firebase/authentications";
-import {motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 function HomePage() {
   const [projectData, setProjectData] = useState([]);
   const headTextRef = useRef();
- 
+
   const logovariants = {
-    hidden:{
-      opacity :0,
-      scale :0.5,
-      x:-100
+    hidden: {
+      opacity: 0,
+      scale: 0.5,
+      x: -100,
     },
-    visible :{
-      opacity :1,
-      scale:1.1,
-      x:0,
+    visible: {
+      opacity: 1,
+      scale: 1.1,
+      x: 0,
       transition: {
         duration: 2,
       },
-      
-
-    }
-  }
+    },
+  };
 
   async function getProjectFromCloud() {
     const token = sessionStorage.getItem("Auth Token");
@@ -50,41 +48,47 @@ function HomePage() {
   return (
     <section className="h-screen w-full bg-zinc-600 overflow-hidden flex flex-col items-center">
       {/* ADD PROJECT */}
-      <nav className="h-[10%] w-full flex items-center justify-between p-2">
-      <div className="basis-1/3 text-black text-2xl font-semibold flex justify-evenly" style={{fontFamily:"Tilt Prism, cursive"}}>
-          <h1 >
-            HOME
-          </h1>
-          <h1 >
-            VERIFY
-          </h1>
-       
-        </div>
+      <nav className="h-[10%] w-full flex items-center justify-center p-2">
         <motion.div
           style={{
             fontFamily: "Knewave, cursive",
           }}
-          className="text-black basis-1/2 text-6xl tracking-widest ml-40	 font-semibold p-3"
-           variants={logovariants}
-                initial="hidden"
-                animate="visible"
+          className="text-black text-6xl tracking-widest font-semibold p-3"
+          variants={logovariants}
+          initial="hidden"
+          animate="visible"
         >
           Printify
         </motion.div>
-      
+      </nav>
+      <div className="w-5/6 flex flex-row justify-between mt-20">
+        <div
+          className="text-black text-2xl font-semibold flex" 
+          style={{ fontFamily: "Tilt Prism, cursive" }}
+        >
+          <div className="basis-1/2">
+            <h1>HOME</h1>
+          </div>
+          <div className="basis-1/2">
+            <h1>VERIFY</h1>
+          </div>
+        </div>
+
         <div>
-          <button 
-          onClick={LogoutFirebase}
-          style={{fontFamily:"Tilt Prism, cursive"}}
-          className="bg-highlight px-3 py-2 rounded-lg font-bold text-black">
+          <button
+            onClick={LogoutFirebase}
+            style={{ fontFamily: "Tilt Prism, cursive" }}
+            className="bg-highlight px-3 py-2 rounded-lg font-bold text-black"
+          >
             Log Out
           </button>
         </div>
-      </nav>
+      </div>
+
       <div className="h-1/4 flex items-end justify-center">
         <h1
           ref={headTextRef}
-          style={{fontFamily:"Tilt Prism, cursive"}}
+          style={{ fontFamily: "Tilt Prism, cursive" }}
           className="text-black font-bold text-5xl"
           data-value="CREATE UNLIMITED CERTIFICATES IN SECONDS"
         >

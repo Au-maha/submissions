@@ -5,14 +5,12 @@ import { changeUserState } from "../../hooks/reducers/authSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 function SignInPage() {
-  // initially the state ==> false
   const state = useSelector((state) => state.auth.isLogin);
 
   if (state) {
-    // state ==> true
-    // Login Page
+   
     return (
-      <div className="h-screen bg-gray-500 flex justify-center items-center">
+      <div className="h-screen bg-bgGrey flex justify-center items-center">
         <div className=" bg-slate-50 h-3/4 w-9/12 rounded-2xl shadow-2xl flex overflow-hidden">
           <SignInContent text="Log In" />
           <SignInLoginInSideContent />
@@ -22,7 +20,7 @@ function SignInPage() {
   } else {
     // Sign in Page state ==> false
     return (
-      <div className="h-screen bg-gray-500 flex justify-center items-center">
+      <div className="h-screen bg-bgGrey flex justify-center items-center">
         <div className="bg-slate-50 h-3/4 w-9/12 rounded-2xl shadow-2xl flex overflow-hidden">
           <SignInContent text="Sign In" />
           <SignInLoginInSideContent />
@@ -53,9 +51,9 @@ function SignInLoginInSideContent() {
   return (
     <div className="h-full w-2/5 bg-highlight flex justify-center items-center sm:hidden">
       <div className="text-center flex flex-col items-center">
-        <h1 className="text-black text-4xl mb-5 font-semibold">Hello!</h1>
+        <h1 className="text-white text-4xl mb-5 font-semibold">Hello!</h1>
         <hr className=" border-white w-20 mb-10 border-t-8" />
-        <h2 className="text-black">
+        <h2 className="text-white">
           Fill up the personal information and <br />
           start up your journey with us.
         </h2>
