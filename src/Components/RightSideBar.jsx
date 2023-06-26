@@ -28,6 +28,7 @@ function RightSideBar(props) {
           <button
             onClick={handleClick}
             className="bg-white text-black px-6 py-1 rounded-md my-6 "
+           type=" "
           >
             Upload
           </button>

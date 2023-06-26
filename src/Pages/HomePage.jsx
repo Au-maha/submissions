@@ -46,14 +46,14 @@ function HomePage() {
   }
 
   return (
-    <section className="h-screen w-full bg-zinc-600 overflow-hidden flex flex-col items-center">
+    <section className="h-screen w-full bg-black overflow-hidden flex flex-col items-center">
       {/* ADD PROJECT */}
       <nav className="h-[10%] w-full flex items-center justify-center p-2">
         <motion.div
           style={{
-            fontFamily: "Knewave, cursive",
+            fontFamily: "Agdasima, sans-serif",
           }}
-          className="text-black text-6xl tracking-widest font-semibold p-3"
+          className="text-white text-6xl tracking-widest font-semibold p-3"
           variants={logovariants}
           initial="hidden"
           animate="visible"
@@ -66,8 +66,10 @@ function HomePage() {
 
         </div>
         <div
-          className="text-black text-2xl font-semibold flex" 
-          style={{ fontFamily: "Tilt Prism, cursive" }}
+          className="text-white text-3xl font-semibold flex" 
+          style={{
+            fontFamily: "Agdasima, sans-serif",
+          }}
         >
         
             <h1 className="mr-32">HOME</h1>
@@ -85,11 +87,11 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="h-1/4 flex items-end justify-center">
+      <div className="h-auto mt-20 flex items-end justify-center ">
         <h1
           ref={headTextRef}
           style={{ fontFamily: "Tilt Prism, cursive" }}
-          className="text-black font-bold text-5xl"
+          className="text-white font-bold text-5xl tracking-wider"
           data-value="CREATE UNLIMITED CERTIFICATES IN SECONDS"
         >
           CREATE UNLIMITED CERTIFICATES IN SECONDS
