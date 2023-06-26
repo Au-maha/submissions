@@ -11,7 +11,7 @@ function SignInPage() {
    
     return (
       <div className="h-screen bg-bgGrey flex justify-center items-center">
-        <div className=" bg-slate-50 h-3/4 w-9/12 rounded-2xl shadow-2xl flex overflow-hidden">
+        <div className="  h-3/4 w-9/12 rounded-2xl shadow-2xl shadow-black flex overflow-hidden">
           <SignInContent text="Log In" />
           <SignInLoginInSideContent />
         </div>
@@ -21,7 +21,7 @@ function SignInPage() {
     // Sign in Page state ==> false
     return (
       <div className="h-screen bg-bgGrey flex justify-center items-center">
-        <div className="bg-slate-50 h-3/4 w-9/12 rounded-2xl shadow-2xl flex overflow-hidden">
+        <div className=" h-3/4 w-9/12 rounded-2xl shadow-2xl shadow-black flex overflow-hidden">
           <SignInContent text="Sign In" />
           <SignInLoginInSideContent />
         </div>
@@ -60,7 +60,7 @@ function SignInLoginInSideContent() {
         <button
           type="submit"
           className=" m-6 px-8 py-2 bg-highlight
-    border-white border-solid border-2 text-black rounded-3xl"
+    border-white border-solid border-2 text-white rounded-3xl"
           onClick={() => dispatch(changeUserState(!state))}
         >
           {text}

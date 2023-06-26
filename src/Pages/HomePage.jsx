@@ -62,19 +62,19 @@ function HomePage() {
         </motion.div>
       </nav>
       <div className="w-5/6 flex flex-row justify-between mt-20">
+        <div className="basis-1/4">
+
+        </div>
         <div
           className="text-black text-2xl font-semibold flex" 
           style={{ fontFamily: "Tilt Prism, cursive" }}
         >
-          <div className="basis-1/2">
-            <h1>HOME</h1>
-          </div>
-          <div className="basis-1/2">
-            <h1>VERIFY</h1>
-          </div>
+        
+            <h1 className="mr-32">HOME</h1>
+            <h1 className="ml-32">VERIFY</h1>
         </div>
 
-        <div>
+        <div className="basis-1/4 flex justify-end">
           <button
             onClick={LogoutFirebase}
             style={{ fontFamily: "Tilt Prism, cursive" }}

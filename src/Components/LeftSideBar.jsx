@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, memo, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import Cert1 from "../assets/1.png";
+import Cert3 from "../assets/3.png";
+import Cert6 from "../assets/6.png";
+
 
 function LeftSideBar({
-  disablePointer,
   textLayers,
   selectedText,
+  setSelectedText,
   handleLayerClick,
   handleEditPenClick,
   delLayer,
@@ -14,7 +18,37 @@ function LeftSideBar({
   nameChange,
   setChangeToNameFromInput,
   addLayer,
+  setTextName,
+  setFontSize,
+  setFontWeight,
+  setTextColor,
+  setFontFamily,
+  uploadAssetImage,
 }) {
+  const [layerClick, setLayerClick] = useState(true);
+  const [assetsClick, setAssetsClick] = useState(false);
+
+  const assets = [
+    Cert1,
+   
+    Cert3,
+  
+    Cert6,
+   
+  ];
+
+  function LayerClick() {
+    console.log("layer click");
+    setLayerClick(true);
+    setAssetsClick(false);
+  }
+
+  function AssetsClick() {
+    console.log("assets click");
+    setLayerClick(false);
+    setAssetsClick(true);
+  }
+
   function Layers() {
     return textLayers.map((val) => (
       <div
@@ -32,10 +66,21 @@ function LeftSideBar({
             className="cursor-pointer pr-6 pt-1"
             onClick={() => handleEditPenClick(val.id, val.name)}
           />
-          <h1 onClick={() => handleLayerClick(val.id)} className=" select-none">
+          <h1
+            onClick={() =>
+              handleLayerClick(
+                val.id,
+                val.val,
+                val.color,
+                val.fontWeight,
+                val.fontSize,
+                val.fontFamily
+              )
+            }
+            className="select-none w-full text-start"
+          >
             {val.name}
           </h1>
-          <div className=" w-full"></div>
         </div>
         <FontAwesomeIcon
           icon={faTrash}
@@ -46,6 +91,30 @@ function LeftSideBar({
       </div>
     ));
   }
+
+  const Assets = memo(() => {
+
+    return (
+      <div
+        style={{
+          overflowAnchor: "auto",
+        }}
+        className="w-full h-[100vh] overflow-y-scroll"
+      >
+        {assets.map((val) => (
+          <img
+            key={Math.random()}
+            // style={{
+            //   backgroundColor: assetSelected == val ? "#788C9E" : "",
+            // }}
+            onClick={() => uploadAssetImage(val)}
+            src={val}
+            className="p-4 cursor-pointer"
+          />
+        ))}
+      </div>
+    );
+  });
 
   return (
     <>
@@ -86,18 +155,42 @@ function LeftSideBar({
       >
         <div
           className="w-full h-[50px] border-stroke border-solid border-b-[1px]
-        flex justify-around items-center text-white"
+        flex justify-around items-center text-white cursor-pointer"
         >
-          <h1>Layers</h1>
-          <h1>Assets</h1>
+          <h1
+            style={{
+              fontWeight: layerClick ? "600" : "300",
+            }}
+            onClick={LayerClick}
+          >
+            Layers
+          </h1>
+          <h1
+            style={{
+              fontWeight: assetsClick ? "600" : "300",
+            }}
+            onClick={AssetsClick}
+          >
+            Assets
+          </h1>
           <FontAwesomeIcon
             icon={faPlus}
             className="cursor-pointer"
             onClick={addLayer}
           />
         </div>
-        <Layers />
-        <div className="h-full" onClick={disablePointer}></div>
+        {layerClick ? <Layers /> : <Assets />}
+        <div
+          className="h-full"
+          onClick={() => {
+            setSelectedText("");
+            setTextName("");
+            setTextColor("");
+            setFontWeight("");
+            setFontSize("");
+            setFontFamily("");
+          }}
+        ></div>
       </div>
     </>
   );
