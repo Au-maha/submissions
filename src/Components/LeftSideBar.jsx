@@ -1,10 +1,15 @@
 import React, { useState, memo, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faTrash,
+  faPen,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import Cert1 from "../assets/1.png";
 import Cert3 from "../assets/3.png";
 import Cert6 from "../assets/6.png";
-
+import { useNavigate } from "react-router-dom";
 
 function LeftSideBar({
   textLayers,
@@ -28,14 +33,9 @@ function LeftSideBar({
   const [layerClick, setLayerClick] = useState(true);
   const [assetsClick, setAssetsClick] = useState(false);
 
-  const assets = [
-    Cert1,
-   
-    Cert3,
-  
-    Cert6,
-   
-  ];
+  const assets = [Cert1, Cert3, Cert6];
+
+  const navigate = useNavigate();
 
   function LayerClick() {
     console.log("layer click");
@@ -93,7 +93,6 @@ function LeftSideBar({
   }
 
   const Assets = memo(() => {
-
     return (
       <div
         style={{
@@ -157,6 +156,12 @@ function LeftSideBar({
           className="w-full h-[50px] border-stroke border-solid border-b-[1px]
         flex justify-around items-center text-white cursor-pointer"
         >
+          <FontAwesomeIcon
+            icon={faArrowLeft}
+            className="text-white"
+            onClick={() => navigate("/home")}
+          />
+
           <h1
             style={{
               fontWeight: layerClick ? "600" : "300",

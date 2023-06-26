@@ -95,7 +95,7 @@ function HomePage() {
           CREATE UNLIMITED CERTIFICATES IN SECONDS
         </h1>
       </div>
-      <div className="w-[85%] border-2 border-white h-[65%] mt-10 rounded-t-3xl flex flex-wrap">
+      <div className="w-[85%] border-2 border-white h-auto mt-10 rounded-t-3xl flex flex-wrap">
         {/* CREATE PROJECT DIV */}
         <div
           className="border-2 border-white border-solid h-52 w-64 m-4 rounded-lg
